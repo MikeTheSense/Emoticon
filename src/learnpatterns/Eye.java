@@ -40,55 +40,28 @@ public class Eye extends JComponent  {
             isClicked = true;
             paintComponent(this.getGraphics());
         }
-        //this.getGraphics();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g.create();
-        g2.setColor(Color.RED);
         if (isClicked) {
             if(isChanged)
             {
                 g2.drawImage(image,x,y,width,height,null);
-                g2.setColor(Color.GREEN);
                 isChanged = false;
             }
             else
             {
                 g2.drawImage(changedImage,x,y,width,height,null);
-                g2.setColor(Color.RED);
                 isChanged = true;
             }
         }
-        else
-        {
-            g2.drawImage(image,x,y,width,height,null);
-            g2.drawRect(0,0,PREF_W,PREF_H);
-
-        }
-        //g2.fillOval(x,y,width,height);
-        System.out.println("Hey, I'm Clicked");
-        //g2.dispose();
-    }
-
-
-    protected void changePicture(Graphics g)
-    {
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g.create();
-        g2.setColor(Color.GREEN);
-        g2.fillOval(x,y,width,height);
+        else g2.drawImage(image,x,y,width,height,null);
     }
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(PREF_W, PREF_H);
-    }
-    public void draw(Graphics g, Color color)
-    {
-        super.paintComponent(g);
-        g.setColor(Color.GREEN);
-        g.fillOval(x,y,width,height);
     }
 }
