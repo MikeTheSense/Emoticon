@@ -1,4 +1,4 @@
-package learnpatterns;
+package learnpatterns.Emoticon;
 
 import javax.swing.*;
 import java.awt.*;

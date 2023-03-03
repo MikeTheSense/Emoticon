@@ -1,9 +1,11 @@
-package learnpatterns;
+package learnpatterns.Emoticon;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class Nose extends JComponent {
+public class Eye extends JComponent  {
     private  int PREF_W = 70;
     private  int PREF_H = 70;
 
@@ -19,7 +21,7 @@ public class Nose extends JComponent {
 
 
 
-    public Nose(int x, int y, int width, int height,int pref_w, int pref_h, Image image, Image changedImage) {
+    public Eye(int x, int y, int width, int height,int pref_w, int pref_h, Image image, Image changedImage) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -38,7 +40,6 @@ public class Nose extends JComponent {
             isClicked = true;
             paintComponent(this.getGraphics());
         }
-        //this.getGraphics();
     }
 
     @Override
@@ -57,28 +58,10 @@ public class Nose extends JComponent {
                 isChanged = true;
             }
         }
-        else
-        {
-            g2.drawImage(image,x,y,width,height,null);
-        }
-    }
-
-
-    protected void changePicture(Graphics g)
-    {
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g.create();
-        g2.setColor(Color.GREEN);
-        g2.fillOval(x,y,width,height);
+        else g2.drawImage(image,x,y,width,height,null);
     }
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(PREF_W, PREF_H);
-    }
-    public void draw(Graphics g, Color color)
-    {
-        super.paintComponent(g);
-        g.setColor(Color.GREEN);
-        g.fillOval(x,y,width,height);
     }
 }
