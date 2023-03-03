@@ -37,7 +37,6 @@ public class CoolGraphic extends JFrame {
             tochedNose = ImageIO.read(new FileInputStream("src/Resources/c2eb5b820a7aa96b87090460a815033f.png"));
             mounth = ImageIO.read(new FileInputStream("src/Resources/smile.jpg"));
             openedMounth = ImageIO.read(new FileInputStream("src/Resources/unsmile.jpg"));
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -80,7 +79,6 @@ public class CoolGraphic extends JFrame {
         JButton jButtonHolidays = new JButton("Holidays");
         jButtonHolidays.addActionListener(e -> sceneContext.setStateHolidays());
         sceneContext.repaint();
-
         MouseListener panelObserver = new TestActionListener();
         JPanel jpanel = new JPanel(new FlowLayout());
         jpanel.setBackground(Color.WHITE);
@@ -88,8 +86,6 @@ public class CoolGraphic extends JFrame {
         jpanel.add(jButtonSession);
         jpanel.add(jButtonHolidays);
         jpanel.add(sceneContext);
-
-
         jpanel.revalidate();
         jpanel.repaint();
         frame.add(jpanel);
@@ -101,11 +97,8 @@ public class CoolGraphic extends JFrame {
 
     public static void createScene()
     {
-       // CoolGraphic emoticon = new CoolGraphic();
-      //  emoticon.drawEmoticon();
         CoolGraphic student = new CoolGraphic();
         student.drawStudent();
-
     }
 }
 
