@@ -105,7 +105,7 @@ public class CoolGraphic extends JFrame {
         JButton jButtonTerm = new JButton("Start");
         jButtonTerm.addActionListener(e -> {
             try {
-                ds.addDrawingObject(new Star(20,20,250,250,3,10,900,700,0.2,0.98));
+                ds.addDrawingObject(new Ball(20,20,879,670,3,10,900,700,0.2,0.98));
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }

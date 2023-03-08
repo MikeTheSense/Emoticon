@@ -12,7 +12,7 @@ public class DrawingScene extends JComponent {
     private static final long serialVersionUID = 1L;
     private static final int PREF_W = 900;
     private static final int PREF_H = 700;
-    private static final int TIMER_DELAY = 15;
+    private static final int TIMER_DELAY = 5;
 
 
     private ArrayList<DrawingObjectTemplate> drawingObjects = new ArrayList<>();
