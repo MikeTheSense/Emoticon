@@ -1,5 +1,9 @@
 package learnpatterns;
 
+import learnpatterns.DrawingFigures.*;
+import learnpatterns.DrawingFigures.DrawingObjectTemplate.Ball;
+import learnpatterns.DrawingFigures.DrawingObjectTemplate.Rectangle;
+import learnpatterns.DrawingFigures.DrawingObjectTemplate.Star;
 import learnpatterns.Emoticon.Eye;
 import learnpatterns.Emoticon.Mouth;
 import learnpatterns.Emoticon.Nose;
@@ -95,10 +99,35 @@ public class CoolGraphic extends JFrame {
     }
 
 
-    public static void createScene()
-    {
+    public void drawBall() throws IOException {
+        DrawingScene ds = new DrawingScene();
+        ds.draw();
+        JButton jButtonTerm = new JButton("Start");
+        jButtonTerm.addActionListener(e -> {
+            try {
+                ds.addDrawingObject(new Star(20,20,250,250,3,10,900,700,0.2,0.98));
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
+        JButton jButtonTerm1 = new JButton("Stop");
+        jButtonTerm1.addActionListener(e -> System.exit(0));
+        JFrame frame = new JFrame("Ball by Mikola");
+        JPanel jpanel = new JPanel(new FlowLayout());
+        jpanel.add(ds);
+        jpanel.add(jButtonTerm);
+        jpanel.add(jButtonTerm1);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(jpanel);
+        frame.pack();
+        frame.setLocationByPlatform(true);
+        frame.setVisible(true);
+    }
+
+
+    public static void createScene() throws IOException {
         CoolGraphic student = new CoolGraphic();
-        student.drawStudent();
+        student.drawBall();
     }
 }
 
