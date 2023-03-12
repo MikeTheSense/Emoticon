@@ -2,6 +2,8 @@ package learnpatterns;
 
 import learnpatterns.DrawingFigures.*;
 import learnpatterns.DrawingFigures.DrawingObjectTemplate.Ball;
+import learnpatterns.DrawingFigures.DrawingObjectTemplate.Rectangle;
+import learnpatterns.DrawingFigures.DrawingObjectTemplate.Star;
 import learnpatterns.Emoticon.Eye;
 import learnpatterns.Emoticon.Mouth;
 import learnpatterns.Emoticon.Nose;
@@ -108,7 +110,7 @@ public class CoolGraphic extends JFrame {
         JButton jButtonTerm = new JButton("Start");
         jButtonTerm.addActionListener(e -> {
             try {
-                ds.addDrawingObject(new Ball(20,20,879,670,3,10,900,700,0.2,0.98));
+                ds.addDrawingObject(new Rectangle(20,20,879,670,3,10,900,700,0.2,0.98));
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
@@ -154,7 +156,7 @@ public class CoolGraphic extends JFrame {
 
     public static void createScene() throws IOException {
         CoolGraphic student = new CoolGraphic();
-        student.drawGraphic();
+        student.drawBall();
     }
 }
 

@@ -14,7 +14,7 @@ public class Rectangle extends DrawingObjectTemplate {
             x += dx;
         }
         if (y > (yborder - height) || y < 0) {
-            dy = -dy * 0.95;
+            dy = -dy * 0.88;
             y += dy;
         }
         x += dx;
