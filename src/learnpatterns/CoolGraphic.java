@@ -2,12 +2,14 @@ package learnpatterns;
 
 import learnpatterns.DrawingFigures.*;
 import learnpatterns.DrawingFigures.DrawingObjectTemplate.Ball;
-import learnpatterns.DrawingFigures.DrawingObjectTemplate.Rectangle;
-import learnpatterns.DrawingFigures.DrawingObjectTemplate.Star;
 import learnpatterns.Emoticon.Eye;
 import learnpatterns.Emoticon.Mouth;
 import learnpatterns.Emoticon.Nose;
 import learnpatterns.Emoticon.TestActionListener;
+import learnpatterns.MySimpleGraphic.Controller;
+import learnpatterns.MySimpleGraphic.DataSet;
+import learnpatterns.MySimpleGraphic.GraphScene;
+import learnpatterns.MySimpleGraphic.TableView;
 import learnpatterns.Session.SceneContext;
 
 import javax.imageio.ImageIO;
@@ -17,6 +19,7 @@ import java.awt.event.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class CoolGraphic extends JFrame {
     public void drawEmoticon()
@@ -124,10 +127,34 @@ public class CoolGraphic extends JFrame {
         frame.setVisible(true);
     }
 
+    public void drawGraphic()
+    {
+        //DataSet dataSet = new DataSet(new HashMap<>());
+        Controller controller = new Controller(new DataSet(new HashMap<>()));
+        GraphScene ds = new GraphScene();
+        controller.setGraphView(ds);
+        TableView tb = new TableView(controller);
+        ds.repaint();
+        JFrame frame = new JFrame("Graphic by Mikola");
+        JPanel jpanel = new JPanel(new GridLayout(1,2));
+        jpanel.add(ds);
+
+
+        jpanel.add(tb.buildTable());
+        //jpanel.add(buttons);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(jpanel);
+
+        frame.pack();
+        frame.repaint();
+        frame.setLocationByPlatform(true);
+        frame.setVisible(true);
+    }
+
 
     public static void createScene() throws IOException {
         CoolGraphic student = new CoolGraphic();
-        student.drawBall();
+        student.drawGraphic();
     }
 }
 
